@@ -36,7 +36,7 @@ export interface Config {
  */
 const readConfigFrom = (file: string, option?: {optimize: boolean, withDraft: boolean}): Config => {
     const yml = fs.readFileSync(file, 'utf-8')
-    var conf = yaml.safeLoad(yml)
+    var conf = yaml.load(yml)
     const opt = option || {optimize: false, withDraft: false}
     if(!conf.build.elm) {
         conf.build.elm = {}
